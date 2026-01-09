@@ -1,0 +1,18 @@
+patch:
+  menu:
+    page_size: 6
+# 让标点走半角(英文标点)
+  punctuator:
+    full_shape: false
+
+#   # 让“英文标点/中文标点”这个开关默认处于英文标点
+#   switches:
+#     - name: simplification
+#       reset: 0
+#       states: [ 简体, 繁體 ]
+#     - name: ascii_mode
+#       reset: 0
+#       states: [ 中文, 英文 ]
+#     - name: ascii_punct
+#       reset: 1
+#       states: [ 中文标点, 英文标点 ]
