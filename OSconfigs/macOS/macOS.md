@@ -102,7 +102,7 @@ patch:
 
 
 
-### `squirrel.custom.yaml` 和
+### `squirrel.custom.yaml` 
 
 刚才我们定义的是 schema (输入方案层), 使用
 
@@ -131,6 +131,14 @@ patch:
 ```
 
 
+
+### 把 input sources 的 caplock 键切换 input source 给去掉. 
+
+system settings -> keyboard -> input sources -> all input sources -> use the 中/英 key to switch to and from ABC
+
+去掉之后它就变成了真正的大写键. 
+
+本来的系统方案是需要它的, 但是我们现在用 rime 输入法, shift 恢复了切换中英文的功能, 于是就不再需要了. 现在恢复它原本的功能. 于是这个键盘就和 windows 的差不多了.
 
 
 
