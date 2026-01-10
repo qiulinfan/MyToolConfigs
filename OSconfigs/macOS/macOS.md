@@ -150,3 +150,12 @@ iTerm2 是普遍认为的 mac 最好的 terminal 之一. 可定制性高.
 
 
 
+## finder 显示隐藏文件
+
+Finder 中显示隐藏文件
+
+```bash
+defaults write com.apple.finder AppleShowAllFiles -bool true
+killall Finder
+```
+

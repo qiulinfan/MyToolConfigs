@@ -209,7 +209,9 @@
     \RequirePackage[UTF8,scheme=plain]{ctex}}{\relax}
   
   \AfterEndPreamble{
-    \setlength\parindent{2\ccwd}}
+    \setlength\parindent{0\ccwd}
+    \setlength{\parskip}{0.5em}
+    }
 }{\relax}
 
 \ifcsname heiti\endcsname
@@ -430,7 +432,7 @@
   \newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
   \newcommand{\updatename}{Update: }
   \newcommand{\historyname}{History}
-  \newcommand{\beforechap}{HW}
+  \newcommand{\beforechap}{lec}
   \newcommand{\afterchap}{:}
 }{\relax}
 
@@ -439,7 +441,7 @@
   \setlength\parindent{2em}
   \newcommand\figref[1]{\textbf{Figure}~\ref{#1}}
   \newcommand\tabref[1]{\textbf{Table}~\ref{#1}}
-  \renewcommand{\chaptername}{hw}
+  \renewcommand{\chaptername}{Lec}
   \renewcommand{\partname}{\color{structurecolor} Part}
   \newcommand{\authorname}{\textbf{Author: }}
   \newcommand{\institutename}{\textbf{Institute: }}
@@ -497,8 +499,8 @@
 
 \ifdefstring{\ELEGANT@lang}{cn}{
   \ifdefstring{\ELEGANT@scheme}{chinese}{
-    \newcommand{\xchaptertitle}{HW \zhnumber{\arabic{chapter}}} }{
-    \newcommand{\xchaptertitle}{HW \thechapter{}}} }{
+    \newcommand{\xchaptertitle}{Lec \zhnumber{\arabic{chapter}}} }{
+    \newcommand{\xchaptertitle}{Lec \thechapter{}}} }{
   \newcommand{\xchaptertitle}{\chaptername~\thechapter~}}
 
 \setcounter{secnumdepth}{5}
@@ -550,6 +552,7 @@
       separator sign={.},},
     defstyle/.style={
       common,
+      fontupper=\normalfont,
       colframe=main,  
       colback=main!5,
       colbacktitle=main, 
@@ -582,7 +585,9 @@
           {title={\definitionname~\thetcbcounter\ (#2)}}
           {title=\definitionname~\thetcbcounter}
       },
-    IfBooleanTF={#3}{label=#4}{label={def:#4}}}
+    IfBooleanTF={#3}
+      {IfValueTF={#4}{label=#4}{label={def:\thetcbcounter}}}
+      {IfValueTF={#4}{label={def:#4}}{label={def:\thetcbcounter}}}}
   % \newtcbtheorem[auto counter,number within=chapter]{theorem}{\theoremname}{thmstyle}{thm}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{theorem}{ g o t\label g }{
     common,thmstyle,
@@ -593,7 +598,9 @@
           {title={\theoremname~\thetcbcounter\ (#2)}}
           {title=\theoremname~\thetcbcounter}
       },
-    IfBooleanTF={#3}{label=#4}{label={thm:#4}}}
+    IfBooleanTF={#3}
+      {IfValueTF={#4}{label=#4}{label={thm:\thetcbcounter}}}
+      {IfValueTF={#4}{label={thm:#4}}{label={thm:\thetcbcounter}}}}
   % \newtcbtheorem[auto counter,number within=chapter]{postulate}{\postulatename}{thmstyle}{pos}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{postulate}{ g o t\label g }{
     common,thmstyle,
@@ -604,7 +611,9 @@
           {title={\postulatename~\thetcbcounter\ (#2)}}
           {title=\postulatename~\thetcbcounter}
       },
-    IfBooleanTF={#3}{label=#4}{label={pos:#4}}}
+    IfBooleanTF={#3}
+      {IfValueTF={#4}{label=#4}{label={pos:\thetcbcounter}}}
+      {IfValueTF={#4}{label={pos:#4}}{label={pos:\thetcbcounter}}}}
   % \newtcbtheorem[auto counter,number within=chapter]{axiom}{\axiomname}{thmstyle}{axi}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{axiom}{ g o t\label g }{
     common,thmstyle,
@@ -615,7 +624,9 @@
           {title={\axiomname~\thetcbcounter\ (#2)}}
           {title=\axiomname~\thetcbcounter}
       },
-    IfBooleanTF={#3}{label=#4}{label={axi:#4}}}
+    IfBooleanTF={#3}
+      {IfValueTF={#4}{label=#4}{label={axi:\thetcbcounter}}}
+      {IfValueTF={#4}{label={axi:#4}}{label={axi:\thetcbcounter}}}}
   % \newtcbtheorem[auto counter,number within=chapter]{corollary}{\corollaryname}{thmstyle}{cor}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{corollary}{ g o t\label g }{
     common,thmstyle,
@@ -626,7 +637,9 @@
           {title={\corollaryname~\thetcbcounter\ (#2)}}
           {title=\corollaryname~\thetcbcounter}
       },
-    IfBooleanTF={#3}{label=#4}{label={cor:#4}}}
+    IfBooleanTF={#3}
+      {IfValueTF={#4}{label=#4}{label={cor:\thetcbcounter}}}
+      {IfValueTF={#4}{label={cor:#4}}{label={cor:\thetcbcounter}}}}
   % \newtcbtheorem[auto counter,number within=chapter]{lemma}{\lemmaname}{thmstyle}{lem}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{lemma}{ g o t\label g }{
     common,thmstyle,
@@ -637,7 +650,9 @@
           {title={\lemmaname~\thetcbcounter\ (#2)}}
           {title=\lemmaname~\thetcbcounter}
       },
-    IfBooleanTF={#3}{label=#4}{label={lem:#4}}}
+    IfBooleanTF={#3}
+      {IfValueTF={#4}{label=#4}{label={lem:\thetcbcounter}}}
+      {IfValueTF={#4}{label={lem:#4}}{label={lem:\thetcbcounter}}}}
   % \newtcbtheorem[auto counter,number within=chapter]{proposition}{\propositionname}{propstyle}{pro}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{proposition}{ g o t\label g }{
     common,propstyle,
@@ -648,7 +663,9 @@
           {title={\propositionname~\thetcbcounter\ (#2)}}
           {title=\propositionname~\thetcbcounter}
       },
-    IfBooleanTF={#3}{label=#4}{label={pro:#4}}}
+    IfBooleanTF={#3}
+      {IfValueTF={#4}{label=#4}{label={pro:\thetcbcounter}}}
+      {IfValueTF={#4}{label={pro:#4}}{label={pro:\thetcbcounter}}}}
 }{\relax}
 
 
@@ -660,7 +677,7 @@
   \let\endproof\relax
 
   % declare a new theorem style
-  \newtheoremstyle{defstyle}{3pt}{3pt}{\citshape}{-3pt}{
+  \newtheoremstyle{defstyle}{3pt}{3pt}{\normalfont}{-3pt}{
     \bfseries\color{main}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
   \newtheoremstyle{thmstyle}{3pt}{3pt}{\citshape}{-3pt}{
     \bfseries\color{second}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
@@ -1187,6 +1204,7 @@
 \DeclareMathOperator{\colim}{colim}
 \DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\conv}{conv}
 
 \newcommand{\sub}{\subseteq}
 \newcommand{\ul}{\underline}
@@ -1215,8 +1233,11 @@
     \end{figure}
 }
 
-\newcommand{\pic}[2][width=\textwidth]{
+
+\newcommand{\pic}[2][1]{
     \begin{center}
-        \includegraphics[#1]{#2} % #1: 图片尺寸，#2: 图片路径
+        \includegraphics[width=#1\textwidth]{#2}
     \end{center}
 }
+
+\newcommand{\ds}{\displaystyle}
