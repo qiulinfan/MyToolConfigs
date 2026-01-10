@@ -18,6 +18,8 @@ https://rime.im/download/
 
 ![Screenshot 2026-01-09 at 11.26.31](assets/Screenshot 2026-01-09 at 11.26.31.png)
 
+### 加 emoji 库
+
 但这个下载是不包括 emoji 库的. 我们需要自己额外下载一个 emoji 库. 
 
 ```json
@@ -47,6 +49,8 @@ curl -L -o ~/Library/Rime/opencc/emoji_category.txt \
                                  Dload  Upload   Total   Spent    Left  Speed
 100 15747  100 15747    0     0  74956      0 --:--:-- --:--:-- --:--:-- 75344
 ```
+
+### `luna_pinyin_simp.custom.yaml`
 
 下载完之后自动重启, 打开 settings 就是进入这个文件夹. 只需要创建一个 `luna_pinyin_simp.custom.yaml` 文件然后输入
 
@@ -95,6 +99,36 @@ patch:
 就好了.
 
 其他设置也可以改. 自定义支持度非常高. 我这里加了 emoji filter.
+
+
+
+### `squirrel.custom.yaml` 和
+
+刚才我们定义的是 schema (输入方案层), 使用
+
+- `luna_pinyin_simp.schema.yaml`
+- `luna_pinyin_simp.custom.yaml`
+
+负责:
+
+- 拼写规则
+- 词典
+- translator
+- recognizer
+- key_binder
+- engine pipeline
+
+它不负责 UI 展示. UI 展示, 比如 layout 是横的还是竖着的, 是 `squirrel.custom.yaml` 里面自定义.
+
+所以在这个目录再创建一个这个文件. 
+
+我这里定义了 layout 改成竖的.
+
+```yaml
+patch:
+  "style/candidate_list_layout": linear
+  "style/text_orientation": horizontal
+```
 
 
 
