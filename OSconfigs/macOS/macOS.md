@@ -84,6 +84,12 @@ patch:
     - { when: always, accept: Control+Shift+4, send: noop }
     - { when: always, accept: Control+Shift+dollar, send: noop }
 
+  reverse_lookup:
+    enable: false
+
+  recognizer/patterns:
+    reverse_lookup: "a^"  
+
 ```
 
 就好了.
