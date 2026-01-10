@@ -18,17 +18,77 @@ https://rime.im/download/
 
 ![Screenshot 2026-01-09 at 11.26.31](assets/Screenshot 2026-01-09 at 11.26.31.png)
 
+但这个下载是不包括 emoji 库的. 我们需要自己额外下载一个 emoji 库. 
+
+```json
+mkdir -p ~/Library/Rime/opencc
+
+curl -L -o ~/Library/Rime/opencc/emoji.json \
+  https://raw.githubusercontent.com/rime-aca/OpenCC_Emoji/master/opencc/emoji.json
+
+curl -L -o ~/Library/Rime/opencc/emoji_word.txt \
+  https://raw.githubusercontent.com/rime-aca/OpenCC_Emoji/master/opencc/emoji_word.txt
+
+curl -L -o ~/Library/Rime/opencc/emoji_category.txt \
+  https://raw.githubusercontent.com/rime-aca/OpenCC_Emoji/master/opencc/emoji_category.txt
+
+```
+
+下载结果大概是:
+
+```bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   382  100   382    0     0   2515      0 --:--:-- --:--:-- --:--:--  2529
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  179k  100  179k    0     0   526k      0 --:--:-- --:--:-- --:--:--  525k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 15747  100 15747    0     0  74956      0 --:--:-- --:--:-- --:--:-- 75344
+```
+
 下载完之后自动重启, 打开 settings 就是进入这个文件夹. 只需要创建一个 `luna_pinyin_simp.custom.yaml` 文件然后输入
 
 ```yaml
 patch:
+  menu:
+    page_size: 6
+
   punctuator:
     full_shape: false
+
+  engine/filters:
+    - simplifier
+    - simplifier@emoji_suggestion
+
+  simplifier:
+    opencc_config: t2s.json
+    tips: none
+
+  emoji_suggestion:
+    opencc_config: emoji.json
+    option_name: emoji_suggestion
+    tips: none
+
+  switches:
+    - name: emoji_suggestion
+      reset: 1
+      states: [ Off, Emoji ]
+    - name: simplification
+      reset: 1
+      states: [汉字, 漢字]
+
+
+  key_binder/bindings:
+    - { when: always, accept: Control+Shift+4, send: noop }
+    - { when: always, accept: Control+Shift+dollar, send: noop }
+
 ```
 
 就好了.
 
-其他设置也可以改. 自定义支持度非常高.
+其他设置也可以改. 自定义支持度非常高. 我这里加了 emoji filter.
 
 
 
