@@ -51,4 +51,3 @@ conda config --remove-key channels
  conda activate eecs545
 ```
 
-
