@@ -142,6 +142,216 @@ system settings -> keyboard -> input sources -> all input sources -> use the 中
 
 
 
+## 系统级改键位: karabiner
+
+这个软件可以拦截 input 并添加规则. 所以有系统级的优先级. 因为 macOS 的键位, 除了在 settings 里面可以让各个系统键相互置换之外, 并没有其他能更改的方法 (尤其是系统默认的功能键组合, 没法改), 所以我会下这个软件来修改.
+
+https://karabiner-elements.pqrs.org/
+
+(说这么老些我其实就是想改这两个组合:
+
+- 把 fn/cmd + 左右 改成逐单词移动光标. 加 shift 前缀 -> 选中
+- 把它们原本的跳转行首/行尾的功能放给 ctrl+左右键.
+
+)
+
+下载完之后进入 complex modifications -> add your own rule, 然后放进这个东西:
+
+```json
+{
+  "description": "Command/Fn = word, Ctrl = line (with Shift support)",
+  "manipulators": [
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_arrow",
+        "modifiers": {
+          "mandatory": ["command"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["option"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "right_arrow",
+        "modifiers": {
+          "mandatory": ["command"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["option"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_arrow",
+        "modifiers": {
+          "mandatory": ["command", "shift"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["option", "shift"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "right_arrow",
+        "modifiers": {
+          "mandatory": ["command", "shift"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["option", "shift"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_arrow",
+        "modifiers": {
+          "mandatory": ["fn"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["option"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "right_arrow",
+        "modifiers": {
+          "mandatory": ["fn"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["option"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_arrow",
+        "modifiers": {
+          "mandatory": ["fn", "shift"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["option", "shift"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "right_arrow",
+        "modifiers": {
+          "mandatory": ["fn", "shift"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["option", "shift"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_arrow",
+        "modifiers": {
+          "mandatory": ["control"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["command"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "right_arrow",
+        "modifiers": {
+          "mandatory": ["control"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["command"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_arrow",
+        "modifiers": {
+          "mandatory": ["control", "shift"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["command", "shift"]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "right_arrow",
+        "modifiers": {
+          "mandatory": ["control", "shift"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["command", "shift"]
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+好了它现在彻底和 win 没什么区别了(
+
+
+
+
+
 ## 新建 workflow: 在 finder 中创建文件
 
 这个真的是最傻比的一个事情. 我不知道为什么 macOS 不支持右键新建文件. 以至于每次都要从 terminal 里面 touch, 或者 `code .` 然后在 VSCode 里面创建. 这真的挺脑残的.
