@@ -4,7 +4,8 @@
     // ============================================================
     "files.exclude": {
         "**/*.meta": true,
-        "**/*.log": true
+        "**/*.log": true,
+        "**/*.o": true
     },
     "files.autoSave": "afterDelay",
     "security.workspace.trust.untrustedFiles": "open",
@@ -135,7 +136,7 @@
             "opacity": 0.05
         },
         "images": [
-            "file:///C:/Users/qiulin/Documents/Github/MyToolConfigs/OSconfigs/wallpapers/miku3.jpg"
+            "file:///C:/Users/qiulin/Documents/Github/MyToolConfigs/wallpapers/miku3.jpg"
         ],
         "interval": 0,
         "random": false
@@ -149,7 +150,7 @@
             "opacity": 0.05
         },
         "images": [
-            "file:///C:/Users/qiulin/Documents/Github/MyToolConfigs/OSconfigs/wallpapers/02_6.jpg"
+            "file:///C:/Users/qiulin/Documents/Github/MyToolConfigs/wallpapers/02_6.jpg"
         ],
         "interval": 0,
         "random": false
@@ -163,7 +164,7 @@
             "opacity": 0.05
         },
         "images": [
-            "file:///C:/Users/qiulin/Documents/Github/MyToolConfigs/OSconfigs/wallpapers/rukia.jpg"
+            "file:///C:/Users/qiulin/Documents/Github/MyToolConfigs/wallpapers/rukia.jpg"
         ],
         "interval": 0,
         "random": false
