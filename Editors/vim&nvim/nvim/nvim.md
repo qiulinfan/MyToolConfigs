@@ -248,3 +248,21 @@ nvim
 
 
 
+
+
+## 添加自定义
+
+众所周知 nvim 和 vim 最好的配置方法就是抄完别人的然后自己再根据喜好修改
+
+我在 polish.lua 中增加了:
+
+```lua
+vim.keymap.set("i", "<C-x><C-c>", "<Esc>", { desc = "Insert mode: Ctrl-X Ctrl-C to Normal mode" })
+vim.keymap.set("n", "<Space>", "i", { desc = "Normal mode: Space to Insert mode" })
+
+vim.cmd [[cnoreabbrev <expr> qa getcmdtype() == ':' && getcmdline() ==# 'qa' ? 'wq' : 'qa']]
+```
+
+- Ctrl X + Ctrl C 进入 normal mode
+- normal mode 下空格键进入编辑模式
+- :wq 取代 :qa 保存退出
