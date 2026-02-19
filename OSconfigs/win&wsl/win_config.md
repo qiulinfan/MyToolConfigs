@@ -392,3 +392,73 @@ pdf 页面编辑: pdfgear
 记得重新装一下. 根据机型找官网的驱动 
 
 不然多显示器可能出问题
+
+
+
+## snapshot (自用, 换机时提醒我自己别忘记迁移文件的...本人不使用云服务)
+
+我的桌面:
+
+> row 1
+>
+> - recycle bin
+> - wallpaper engine
+> - clash verge
+> - baiduyun
+> - rammap
+> - tencent meeting
+> - zoom
+>
+> row 2
+>
+> - cursor
+> - IDEA
+> - Rider
+> - Mathpix
+> - Diary/
+> - notes/
+>
+> row 3
+>
+> - unreal
+> - blender
+> - pixel studio
+> - ocenaudio
+> - mateengine
+>
+> - games/
+
+
+
+我的 task bar:
+
+> - windwos
+> - screen manager
+> - file explorer
+> - terminal
+> - task manager
+> - settings
+> - logi
+> - VSCode
+> - github desktop
+> - Visual Studio
+> - Unity
+> - chrome
+> - typora
+> - obsidian
+> - wechat
+> - sublime text
+> - discord
+
+
+
+我的 Documents/
+
+> - PersonalInfo/
+> - Photos/
+> - Ebooks/
+> - Music/
+> - Courses/
+> - Powershell scripts/
+> - nodejs/
+
