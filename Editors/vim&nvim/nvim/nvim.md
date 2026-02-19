@@ -231,20 +231,20 @@ f \( -name '*.ttf' -o -name '*.otf' \) | wc -l
 
 ### 下载主题 files
 
-```bash
-mv ~/.config/nvim ~/.config/nvim.bak
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
-mv ~/.local/state/nvim ~/.local/state/nvim.bak
-mv ~/.cache/nvim ~/.cache/nvim.bak
-```
+直接一键迁移我的配置:
 
 ```bash
-git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
-rm -rf ~/.config/nvim/.git
-nvim
+cd ~
+git clone git@github.com:yourname/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+bash initial.sh
 ```
 
 此时能加载出完整配置
+
+
+
+或者使用 astrovim 官方的文件: https://github.com/AstroNvim/AstroNvim
 
 
 

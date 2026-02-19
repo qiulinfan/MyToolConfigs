@@ -2,6 +2,8 @@
 
 ## install
 
+mac:
+
 ```shell
 brew install fish # sudo apt install fish
 which fish
@@ -11,6 +13,13 @@ which fish
 
 ```shell
 /opt/homebrew/bin/fish   # for Apple Silicon. /usr/bin/bash for linux
+```
+
+linux:
+
+```bash
+sudo apt install fish
+chsh -s /usr/bin/fish
 ```
 
 
@@ -28,8 +37,8 @@ sudo vim /etc/shells
 然后我们在这个文件末尾加上刚刚 which 到的 fish 的路径
 
 ```shell
-/opt/homebrew/bin/fish   # for Apple Silicon
-/usr/bin/fish  # linux
+/opt/homebrew/bin/fish   # for mac 
+/usr/bin/fish  # for linux
 ```
 
 就把 fish 加入了系统认可的 shells 中
@@ -43,10 +52,6 @@ grep -qxF '/usr/bin/fish' /etc/shells || echo '/usr/bin/fish' | sudo tee -a /etc
 
 
 
-
-
-
-
 然后我们使用这个指令, 把 fish 调为默认 shell 
 
 ```shell
@@ -56,6 +61,19 @@ chsh -s /opt/homebrew/bin/fish
 
 
 ## 配置 fish
+
+可以直接 
+
+```bash
+cd ~
+git clone git@github.com:yourname/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+bash initial.sh
+```
+
+一键迁移我的配置
+
+如果要手动配置的话: 
 
 ### 第一种方法: fish 的官方 config gui
 

@@ -202,34 +202,6 @@ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-13 100
 sudo update-alternatives --config g++
 ```
 
-切个顺手的 shell (我用 fish
-
-```shell
-sudo apt install fish
-chsh -s /usr/bin/fish
-```
-
-然后重新打开 shell, 现在是 fish, 首先安装一下 VSCode server in Ubuntu
-
-直接 
-
-```shell
-code
-```
-
-就可以自动安装
-
-然后:
-
-```shell
-set -gx PATH /usr/bin /usr/local/bin $PATH
-code ~/.config/fish/config.fish
-```
-
-把 config.fish 贴进去就行
-
-
-
 配置一下 github 需要用到的 ssh
 
 ```shell
@@ -241,15 +213,25 @@ cat ~/.ssh/id_ed25519.pub
 
 结果复制到 github 的 ssh
 
+安装一下 VSCode server in Ubuntu:
+
+```bash
+code
+```
+
+然后就是 Linux 的配置环节. 
+
+- 切个顺手的 shell (我用 fish
+
+- 然后下载一个 nvim 作为便携的终端编辑器
+
+见 Shells/fish 和 Editors/nvim 的配置. BTW 我使用一个 dotfiles dir + symlink 来管理 configs. 不用复制粘贴. 
+
+基础的 wsl 相关的配置就这些了. 更多配置直接见 OSConfigs/linux
 
 
-然后下载一个 nvim 作为便携的终端编辑器
 
-见 Editors/nvim 的配置
-
-
-
-### step13: 配置一下常用 scripting language 的环境
+### 配置一下常用 scripting language 的环境
 
 scripting language 还是非常必要的
 
@@ -317,28 +299,24 @@ conda install anaconda-navigator
 
  
 
-### step 14: 其他功能性软件: powertoy 等
+### 其他功能性软件: powertoy 等
 
-我的话会下一个 mathpix 快速公式转 latex/md 的工具
+我的话会下一个 
 
-以及一个 powertoy, 重新映射一下键, 把 f6 映射到 printscreen
+- mathpix: 快速公式转 latex/md 的工具
 
-(powertoy 真挺有用的. 因为比如 rog 幻 16 的原生键盘布局是没有 printscreen 的, 所以i必须得重新映射一个键.)
+- 一个 powertoy, 重新映射一下键, 把 f6 映射到 printscreen
 
-然后把灯光什么的调一下
+	(powertoy 真挺有用的. 因为比如 rog 幻 16 的原生键盘布局是没有 printscreen 的, 所以得重新映射一个键. win+shift+s 太不顺手了)
 
-
-
-充电情况检测: HwiNFO. 对于支持 typec 口充电的而言比较有用.
+- 充电情况检测: HwiNFO. 对于支持 typec 口充电的而言比较有用.
 
 
 
 
 
 
-
-
-### step 15: memory management
+### memory management
 
 内存管理. 主要有些厂商开机占有率太高了. 大概率是一些服务 start up 的原因, 首先少开点 app 上的 startup (比如 dropbox) 其次对系统的 startup processes 可以用 RamMap 清一下
 
