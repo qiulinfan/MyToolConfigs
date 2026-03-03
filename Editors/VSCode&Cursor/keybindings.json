@@ -27,5 +27,10 @@
     "args": {
       "snippet": "\\textbf{${TM_SELECTED_TEXT:$1}}"
     }
+  },
+  {
+    "key": "ctrl+k",
+    "command": "inlineChat.start",
+    "when": "editorFocus && !editorReadonly"
   }
 ]
