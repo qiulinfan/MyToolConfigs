@@ -4,7 +4,13 @@
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 ```
 
-(注意 apt 安装的是老版本的. 所以我们用 curl 安装)
+(注意 apt 安装的是老版本的. 所以我们用 curl 安装. 安装完之后把压缩包删了
+
+```bash
+rm -rf nvim-linux-x86_64.tar.gz
+```
+
+)
 
 ```bash
 sudo apt update
@@ -19,18 +25,24 @@ sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
 which nvim
 nvim --version | head -n 1
 nvim --headless --clean +'lua print(vim.env.VIMRUNTIME)' +qa
+# /usr/local/bin/nvim
 ```
 
 
 
 ### 注意: runtime
 
-注意:  Debian 包数据库里的版本 的仍是 `neovim 0.6.1-3` 
+注意:  Debian 包数据库里的版本 的仍是老版本 `neovim 0.6.1-3` 
 
 ```bash
-~/.c/nvim $ dpkg -l | grep -E '^ii\s+neovim|^ii\s+neovim-runtime'
+dpkg -l | grep -E '^ii\s+neovim|^ii\s+neovim-runtime'
 # ii  neovim                                    0.6.1-3                                 amd64        heavily refactored vim fork
 # ii  neovim-runtime                            0.6.1-3                                 all          heavily refactored vim fork (runtime files)
+```
+
+所以直接删掉:
+```bash
+sudo apt remove neovim neovim-runtime
 ```
 
 
@@ -154,20 +166,19 @@ sudo apt-get update
 ```
 
 ```bash
-sudo apt-get install -y neovim ripgrep lazygit gdu bottom python3 npm xclip xsel wl-clipboard
+sudo apt-get install -y ripgrep gdu python3 xclip xsel wl-clipboard
 ```
 
 检查安装:
 
 ```bash
-for c in xclip xsel wl-copy nvim rg python3 node; command -v $c >/dev/null 2>&1; and echo "$c: installed"; or echo "$c: missing"; en
-d
-xclip: installed
-xsel: installed
-wl-copy: installed
+for c in xclip xsel wl-copy nvim rg python3 node; command -v $c >/dev/null 2>&1; and echo "$c: installed"; or echo "$c: missing"; end
+# xclip: installed
+# xsel: installed
+# wl-copy: installed
 ```
 
-你可以看到我们有四个没装:
+我们还有四个没装:
 
 - nodejs
 - btm
@@ -221,10 +232,8 @@ btm --version
 最后下载 nerdfont:
 
 ```bash
-mkdir -p ~/.local/share/fonts/JetBrainsMonoNerdFont && cd /tmp && curl -fL https://github.com/ryanoasis/nerd-fo
-nts/releases/latest/download/JetBrainsMono.zip -o JetBrainsMono.zip && unzip -o JetBrainsMono.zip -d ~/.local/share/fonts/JetBrainsMono
-NerdFont >/dev/null && fc-cache -f ~/.local/share/fonts/JetBrainsMonoNerdFont && find ~/.local/share/fonts/JetBrainsMonoNerdFont -type 
-f \( -name '*.ttf' -o -name '*.otf' \) | wc -l
+mkdir -p ~/.local/share/fonts/JetBrainsMonoNerdFont && cd /tmp && curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip -o JetBrainsMono.zip && unzip -o JetBrainsMono.zip -d ~/.local/share/fonts/JetBrainsMonoNerdFont >/dev/null && fc-cache -f ~/.local/share/fonts/JetBrainsMonoNerdFont && find ~/.local/share/fonts/JetBrainsMonoNerdFont -type f \( -name '*.ttf' -o -name '*.otf' \) | wc -l
+cd ~
 ```
 
 

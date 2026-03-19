@@ -43,15 +43,6 @@ sudo vim /etc/shells
 
 就把 fish 加入了系统认可的 shells 中
 
-
-
-或者直接
-```shell
-grep -qxF '/usr/bin/fish' /etc/shells || echo '/usr/bin/fish' | sudo tee -a /etc/shells
-```
-
-
-
 然后我们使用这个指令, 把 fish 调为默认 shell 
 
 ```shell
@@ -66,7 +57,7 @@ chsh -s /opt/homebrew/bin/fish
 
 ```bash
 cd ~
-git clone git@github.com:yourname/dotfiles.git ~/dotfiles
+git clone git@github.com:qiulinfan/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 bash initial.sh
 ```
