@@ -8,4 +8,8 @@
 
 
 
-众所周知
+我下载的 extensions:
+
+- Github Copilot Completions: 行内补全
+- Github Copilot Chat
+- ClaudialDE: 可以放背景图片.

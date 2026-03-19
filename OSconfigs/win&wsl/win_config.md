@@ -522,7 +522,7 @@ pdf 页面编辑: pdfgear
 
 我的 task bar:
 
-> - windwos
+> - windows
 > - screen manager
 > - file explorer
 > - terminal
