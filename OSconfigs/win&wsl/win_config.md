@@ -356,9 +356,7 @@ conda install anaconda-navigator
 
  
 
-### 其他功能性软件:
-
-#### powertoy
+### powertoy: keyremap 和 dock
 
 由于小键盘没有 printscreen, 组合键又麻烦
 
@@ -373,30 +371,39 @@ https://learn.microsoft.com/en-us/windows/powertoys/install?tabs=gh%2Cextract-09
 winget install --id Microsoft.PowerToys --source winget
 ```
 
-安装好了之后:
-
-打开 Powertoy -> input and output -> keyboard manager (先 enable) -> remap a shortcut
-
-我会把
-
-- F6 -> Print Screen
-- F5 -> Ctrl + Alt + M (for mathpix)
-
-
-
 然后把 powertoys 加入开机自启动:
 
 Win+R -> 输入 shell:startup 打开 Startup 文件夹 -> 把 powertoys 放进去
 
 注意: 一般我们不想要弹窗只是想它后台启动. 所以右键这个快捷方式 -> properties -> 在 target 后面加上 --silent
 
-#### mathpix
+#### key remap
 
-快速公式转 latex/md 的工具. 
+安装好了之后:
+
+- 开启 keyboard manager 
+
+- 打开 Powertoy -> input and output -> keyboard manager (先 enable) -> remap a shortcut
+
+我会把
+
+- F6 -> Print Screen
+- F5 -> Ctrl + Alt + M (for mathpix)
+
+#### dock
+
+- 点开 system tools -> command palette -> settings
+- dock -> enable dock
+
+这样即可实时监测 performance, 以及布置一些快速 commands.
 
 
 
-#### memory management: ramMap
+
+
+
+
+### memory management: ramMap
 
 内存管理. 主要有些厂商开机占有率太高了. 大概率是一些服务 start up 的原因; 再加上 16 GB 的 ram, 雪上加霜了属于.
 
@@ -459,6 +466,10 @@ Desktop/
 ```
 
 notes/ 作为 obsidian 的 root.
+
+#### mathpix
+
+快速公式转 latex/md 的工具. 
 
 
 
